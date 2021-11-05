@@ -1,0 +1,66 @@
+﻿CONJECTUREPANEL "Trab2 - L. Predicados: Provar a validade de"
+PROOF "¬∃x.¬R(x) ⊢ ∀y.R(y)"
+INFER ¬∃x.¬R(x)
+     ⊢ ∀y.R(y)
+FORMULAE
+0 ¬∃x.¬R(x),
+1 ∃x.¬R(x),
+2 actual i,
+3 ¬R(i),
+4 ¬R(x),
+5 i,
+6 x,
+7 ⊥,
+8 R(i),
+9 R(y),
+10 y 
+IS
+SEQ ("∀ intro"[i,P,x\5,9,10]) ("contra (classical)"[A\8]) (cut[B,C\3,7]) (hyp[A\3]) (cut[B,C\1,7]) ("∃ intro"[P,i,x\4,5,6]) (hyp[A\3]) (hyp[A\2]) ("¬ elim"[B\1]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Trab2 - L. Predicados: Provar a validade de"
+PROOF "¬∀x.¬R(x) ⊢ ∃y.R(y)"
+INFER ¬∀x.¬R(x)
+     ⊢ ∃y.R(y)
+FORMULAE
+0 ¬∀x.¬R(x),
+1 ∀x.¬R(x),
+2 ¬∃y.R(y),
+3 ∃y.R(y),
+4 actual i,
+5 R(i),
+6 R(y),
+7 i,
+8 y,
+9 ⊥,
+10 ¬R(x),
+11 x 
+IS
+SEQ ("contra (classical)"[A\3]) (cut[B,C\1,9]) ("∀ intro"[i,P,x\7,10,11]) ("¬ intro"[A\5]) (cut[B,C\5,9]) (hyp[A\5]) (cut[B,C\3,9]) ("∃ intro"[P,i,x\6,7,8]) (hyp[A\5]) (hyp[A\4]) ("¬ elim"[B\3]) (hyp[A\3]) (hyp[A\2]) ("¬ elim"[B\1]) (hyp[A\1]) (hyp[A\0])
+END
+CONJECTUREPANEL "Trab2 - L. Predicados: Provar a validade de"
+PROOF "actual j, actual k, ∃x.¬R(x) ⊢ ∃y.(R(y)→R(j)∧R(k))"
+INFER actual j,
+     actual k,
+     ∃x.¬R(x)
+     ⊢ ∃y.(R(y)→R(j)∧R(k))
+FORMULAE
+0 actual i,
+1 R(i)→R(j)∧R(k),
+2 R(y)→R(j)∧R(k),
+3 i,
+4 y,
+5 R(k),
+6 R(j),
+7 ⊥,
+8 R(j)∧R(k),
+9 ¬R(i),
+10 R(i),
+11 ∃y.(R(y)→R(j)∧R(k)),
+12 ∃x.¬R(x),
+13 ¬R(x),
+14 x,
+15 actual k,
+16 actual j 
+IS
+SEQ ("∃ elim"[i,C,P,x\3,11,13,14]) (hyp[A\12]) (cut[B,C\1,11]) ("→ intro"[A,B\10,8]) (cut[B,C\7,8]) ("¬ elim"[B\10]) (hyp[A\10]) (hyp[A\9]) (cut[B,C\6,8]) ("contra (constructive)"[B\6]) (hyp[A\7]) (cut[B,C\5,8]) ("contra (constructive)"[B\5]) (hyp[A\7]) ("∧ intro"[A,B\6,5]) (hyp[A\6]) (hyp[A\5]) ("∃ intro"[P,i,x\2,3,4]) (hyp[A\1]) (hyp[A\0])
+END
